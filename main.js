@@ -4,9 +4,9 @@
 
 var cards = [
   "fa fa-diamond",
-  "fa fa-paper-plane-o",
+  "fa fa-diamond",
   "fa fa-anchor",
-  "fa fa-bolt"
+  "fa fa-anchor"
 ]
 
 
@@ -39,17 +39,54 @@ for (var i = 0; i < cardlist.length; i++) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
-function show() {
-  this.className += " open show";
-  console.log('click');
-
-}
+var openCards = [];
+var emptyList = [];
 
 var card = document.querySelectorAll('.card');
+var clickedCard;
 
 for (var i = 0; i < card.length; i++) {
   card[i].addEventListener('click', show);
 }
+
+function show() {
+  this.className += " open show";
+  putCards(this);
+  clickedCard = this.querySelector('i').className;
+  console.log(clickedCard);
+};
+
+
+function putCards(card) {
+  openCards.push(card);
+};
+
+function match() {
+  for (var i = 0; i < openCards.length; i++) {
+  openCards[i].className = "card match";
+}
+
+  card[i].removeEventListener();
+  console.log('match');
+}
+
+
+function dontmatch() {
+  for (var i = 0; i < openCards.length; i++) {
+    openCards[i].className = "card";
+  }
+  console.log('dontmatch');
+  openCards = emptyList;
+}
+
+
+function checkAll() {
+
+}
+
+
+
+
 
 
 
