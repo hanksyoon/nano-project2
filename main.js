@@ -40,7 +40,7 @@ for (var i = 0; i < cardlist.length; i++) {
  */
 
 function show() {
-  this.className += " open";
+  this.className += " open show";
   console.log('click');
 
 }
