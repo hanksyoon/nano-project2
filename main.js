@@ -49,11 +49,20 @@ for (var i = 0; i < card.length; i++) {
   card[i].addEventListener('click', show);
 }
 
+
+
 function show() {
   this.className += " open show";
   putCards(this);
-  clickedCard = this.querySelector('i').className;
-  console.log(clickedCard);
+  clickedCard = this;
+  if (openCards.length == 2) {
+    console.log(openCards);
+    if (openCards[0].querySelector('i').className == openCards[1].querySelector('i').className) {
+      match();
+    } else {
+      dontmatch();
+    }
+  }
 };
 
 
@@ -63,10 +72,12 @@ function putCards(card) {
 
 function match() {
   for (var i = 0; i < openCards.length; i++) {
+    console.log(openCards[i]);
+    console.log(openCards[i].className);
   openCards[i].className = "card match";
+  console.log(openCards[i]);
+  console.log(openCards[i].className);;
 }
-
-  card[i].removeEventListener();
   console.log('match');
 }
 
@@ -77,6 +88,7 @@ function dontmatch() {
   }
   console.log('dontmatch');
   openCards = emptyList;
+  console.log(openCards);
 }
 
 
